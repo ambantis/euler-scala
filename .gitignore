@@ -1,5 +1,5 @@
 project/project
 project/target
 target
-.history
-.ensime
+.idea/
+.idea_modules/
