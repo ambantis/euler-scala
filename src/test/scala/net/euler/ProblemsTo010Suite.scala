@@ -1,6 +1,6 @@
 package net.projecteuler
 
-import net.projecteuler.ProblemsTo010._
+import net.euler.ProblemsTo010._
 import org.scalatest._
 
 

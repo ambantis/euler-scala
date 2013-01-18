@@ -1,4 +1,4 @@
-package net.projecteuler
+package net.euler
 
 object ProblemsTo010 {
 
