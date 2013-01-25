@@ -34,22 +34,6 @@ object ProblemsTo010 {
 //  By considering the terms in the Fibonacci sequence whose values do not exceed four million,
 // find the sum of the even-valued terms.
 
-  def fibo(n: Int): List[Int] = {
-    def loop(acc: List[Int]): List[Int] = {
-      if (acc.head > n) acc.tail.reverse.tail
-      else loop(acc.head + acc.tail.head :: acc)
-    }
-    loop(List(1, 1))
-  }
-
-//  Problem #2 with recursion
-  def sumEvenFibonacciA(limit: Int): Int = {
-    def loop(acc: List[Int]): Int = {
-      if (acc.head > limit) acc.tail.reverse.tail.filter(_ % 2 == 0).fold(0)(_ + _)
-      else loop(acc.head + acc.tail.head :: acc)
-    }
-    loop(List(1,1))
-  }
 
   // Problem #3 Largest Prime Factor
   // The prime factors of 13195 are 5, 7, 13 and 29. What is the largest prime factor of the number 600851475143 ?
@@ -114,22 +98,55 @@ object ProblemsTo010 {
   // Problem #4 Largest palindrome product
   // Find the largest palindrome made from the product of two 3-digit numbers.
   def isPalindrome(n: Int): Boolean = {
-    def loop(s: List[Char]): Boolean =
-      if (s.tail.isEmpty) true
+    def loop(s: List[Char]): Boolean = {
+      if (s.isEmpty || s.tail.isEmpty) true
       else if (s.head == s.last) loop(s.tail.reverse.tail)
       else false
+    }
     loop(n.toString.toList)
   }
 
-  def getCombos(x: Int, y: Int): List[Int] = {
-    if (x == 0 || y == 0) Nil
-    else (x * y) :: getCombos(x - 1, y) ::: getCombos(x, y-1)
+  def getMaxPalindromeProductOfXY(floor: Int, ceiling: Int): Int = {
+    def loop(x: Int, y: Int): List[Int] = {
+      if (x == floor || y == floor) Nil
+      else (x * y) :: loop(x - 1, y) ::: loop(x, y - 1) ::: loop(x - 1, y - 1)
+    }
+    val acc = loop(ceiling, ceiling).filter(isPalindrome(_))
+    if (acc.isEmpty) 0 else acc.max
   }
 
-  def largestPalindromeProduct(x: Int, y: Int): Int = {
-    if (isPalindrome(x * y)) x * y
-    else largestPalindromeProduct(x - 1, y - 1)
+  def largestPalindromeProduct(ceiling: Int): Int = {
+    def loop(acc: List[Int], n: Int): Int = {
+      if (n < 900) acc.max
+      else if (ceiling > 10) loop(getMaxPalindromeProductOfXY(n - 100, n) :: acc, n - 100)
+      else loop(getMaxPalindromeProductOfXY(0, n) :: acc, 100 - n)
+    }
+    loop (List(0), ceiling)
   }
+
+  def nextPalindrome(n: Int): Int = if (isPalindrome(n+1)) n+1 else nextPalindrome(n+1)
+
+  def getPalindromeRange(floor: Int, ceiling: Int): List[Int] = {
+    def loop(n: Int, acc: List[Int]): List[Int] =
+      if (n > ceiling) acc
+      else loop(nextPalindrome(n), nextPalindrome(n) :: acc)
+    loop(floor, List())
+  }
+
+  val threeDigitNumbers = (100 to 999).toList
+
+  def maxPalindromeProduct(numbers: List[Int]) = {
+    val palindromes =
+      for {
+        a <- numbers
+        b <- numbers
+        value = a * b
+        if (value.toString == value.toString.reverse)
+      } yield value
+    palindromes.max
+  }
+
+
 
 
 

@@ -31,18 +31,11 @@ class ProblemsTo010Suite extends FlatSpec {
     assert(result === 23)
   }
 
-  "A fibonacci sequence up to 10" should "equal 1, 2, 3, 5, 8" in {
-    val result = fibo(10)
-    assert(result === List(1,2,3,5,8))
-  }
-
-  "A sum of all even fibonnaci numbers less than 100" should "equal 44" in {
-    val result = sumEvenFibonacciA(100)
-    assert(result === 44)
-  }
 
   "The largest prime factor of 13195" should "equal 29" in {
     val result = largestPrimeFactor(13195)
     assert(result === 29)
   }
+
+
 }
