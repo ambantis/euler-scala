@@ -5,6 +5,7 @@ import net.euler.Problem001._
 import net.euler.Problem002._
 import net.euler.Problem003._
 import net.euler.Problem004._
+import net.euler.Problem005._
 
 /**
  * 
@@ -48,7 +49,6 @@ object Main {
     print("The largest prime factor of 600851475143 (REG) = " + largestPrimeFactorOutput)
     println(" with a time of " + largestPrimeFactorTime + " seconds\n")
 
-
     val stopwatch004 = new Stopwatch()
     val maxPalindromeProductOutput: Int = maxPalindromeProduct(threeDigitNumbers)
     val maxPalindromeProductTime = stopwatch004.elapsedTime()
@@ -57,7 +57,13 @@ object Main {
     print("The largest palindrome made from the product of two 3-digit numbers is = " + maxPalindromeProductOutput)
     println(" with a time of " + maxPalindromeProductTime + " seconds\n")
 
-
+    val stopwatch005 = new Stopwatch()
+    val findSmallestMultipleOutput: Int = findSmallestMultiple(20)
+    val findSmallestMultipleTime = stopwatch005.elapsedTime()
+    println("Problem #005")
+    println("============")
+    print("The smallest even multiple of all numbers 1-20 is = " + findSmallestMultipleOutput)
+    println(" with a time of " + findSmallestMultipleTime + " seconds\n")
 
 
 
