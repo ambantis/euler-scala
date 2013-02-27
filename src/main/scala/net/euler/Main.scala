@@ -1,11 +1,11 @@
 package net.euler
 
-import net.euler.Stopwatch._
 import net.euler.Problem001._
 import net.euler.Problem002._
 import net.euler.Problem003._
 import net.euler.Problem004._
 import net.euler.Problem005._
+import net.euler.Problem006._
 
 /**
  * 
@@ -33,20 +33,12 @@ object Main {
     print("The sum of even Fibonacci numbers that do not exceed 4 million = " + sumEvenFiboNumbersOutput)
     println(" with a time of " + sumEvenFiboNumbersTime + " seconds\n")
 
-    val stopwatch003a = new Stopwatch()
-    val lazyLargestPrimeFactorOutput: Long = lazyPrimeFactors(600851475143L).head
-    val lazyLargestPrimeFactorTime = stopwatch003a.elapsedTime()
-    println("Problem #003a")
+    val stopwatch003 = new Stopwatch()
+    val largestPrimeFactorOutput: Long = net.euler.Problem003.primeFactors(600851475143L).head
+    val largestPrimeFactorTime = stopwatch003.elapsedTime()
+    println("Problem #003")
     println("============")
-    print("The largest prime factor of 600851475143 (LAZY) = " + lazyLargestPrimeFactorOutput)
-    println(" with a time of " + lazyLargestPrimeFactorTime + " seconds\n")
-
-    val stopwatch003b = new Stopwatch()
-    val largestPrimeFactorOutput: Long = primeFactors(600851475143L).head
-    val largestPrimeFactorTime = stopwatch003b.elapsedTime()
-    println("Problem #003b")
-    println("============")
-    print("The largest prime factor of 600851475143 (REG) = " + largestPrimeFactorOutput)
+    print("The largest prime factor of 600851475143 = " + largestPrimeFactorOutput)
     println(" with a time of " + largestPrimeFactorTime + " seconds\n")
 
     val stopwatch004 = new Stopwatch()
@@ -65,11 +57,12 @@ object Main {
     print("The smallest even multiple of all numbers 1-20 is = " + findSmallestMultipleOutput)
     println(" with a time of " + findSmallestMultipleTime + " seconds\n")
 
-
-
-
-
-
-
+    val stopwatch006 = new Stopwatch()
+    val sumSquareDiffOutput: Int = sumSquareDiff(100)
+    val sumSquareDiffTime = stopwatch006.elapsedTime()
+    println("Problem #006")
+    println("============")
+    print("The sum square difference from 1 to 100 is = " + sumSquareDiffOutput)
+    println(" with a time of " + sumSquareDiffTime + " seconds\n")
   }
 }

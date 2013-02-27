@@ -20,4 +20,7 @@ object Problem002 {
 
   def sumEvenFibonacci(limit: Int) = fibs.filter(_ % 2 == 0).takeWhile(_ < limit).fold(0)(_ + _)
 
+
+
+
 }

@@ -13,13 +13,13 @@ class Problem003Test extends FlatSpec {
 
   "The greatest prime factor of 13195" should "equal 29" in {
     val expected: Long = 29L
-    val result = lazyPrimeFactors(13195).head
+    val result = primeFactors(13195).head
     assert(result === expected)
   }
 
   "The greatest prime factor of 600851475143" should "equal 6857" in {
     val expected: Long = 6857L
-    val result = lazyPrimeFactors(600851475143L).head
+    val result = primeFactors(600851475143L).head
     assert(result === expected)
   }
 
