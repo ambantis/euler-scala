@@ -1,11 +1,15 @@
 package net.euler
 
-import net.euler.Problem001._
-import net.euler.Problem002._
-import net.euler.Problem003._
-import net.euler.Problem004._
-import net.euler.Problem005._
-import net.euler.Problem006._
+import net.euler.Problem001.lazySumOfMultiples3And5To
+import net.euler.Problem002.sumEvenFibonacci
+import net.euler.Problem003.primeFactors
+import net.euler.Problem004.{maxPalindromeProduct,threeDigitNumbers}
+import net.euler.Problem005.findSmallestMultiple
+import net.euler.Problem006.sumSquareDiff
+import net.euler.Problem007.primes
+import net.euler.Problem008.{largestProduct, source}
+import net.euler.Problem009.{pythagoreanTriplet, pythagoreanTriple}
+import net.euler.Problem010.primesTo
 
 /**
  * 
@@ -34,7 +38,7 @@ object Main {
     println(" with a time of " + sumEvenFiboNumbersTime + " seconds\n")
 
     val stopwatch003 = new Stopwatch()
-    val largestPrimeFactorOutput: Long = net.euler.Problem003.primeFactors(600851475143L).head
+    val largestPrimeFactorOutput: Long = primeFactors(600851475143L).head
     val largestPrimeFactorTime = stopwatch003.elapsedTime()
     println("Problem #003")
     println("============")
@@ -64,5 +68,51 @@ object Main {
     println("============")
     print("The sum square difference from 1 to 100 is = " + sumSquareDiffOutput)
     println(" with a time of " + sumSquareDiffTime + " seconds\n")
+
+    val stopwatch007 = new Stopwatch()
+    val primeNum10001 = primes(10000)
+    val primeNum10001Time = stopwatch007.elapsedTime()
+    println("Problem #007")
+    println("============")
+    print("The 10,001st prime is = " + primeNum10001)
+    println(" with a time of " + primeNum10001Time + " seconds\n")
+
+    val stopwatch008 = new Stopwatch()
+    val largestProductOutput = largestProduct(source)
+    val largestProductTime = stopwatch008.elapsedTime()
+    println("Problem #008")
+    println("============")
+    print("The largest consecutive product of 3 numbers is = " + largestProductOutput)
+    println(" with a time of " + largestProductTime + " seconds\n")
+
+    val stopwatch009a = new Stopwatch()
+    val pythagoreanTripletOutput: Int = pythagoreanTriplet()
+    val pythagoreanTripletTime = stopwatch009a.elapsedTime()
+    println("Problem #009a")
+    println("============")
+    // the functional version runs about 30 seconds
+    // the java version runs at about .4 seconds
+    print("The procedural product of abc of the pythagoreanTriplet is = " + pythagoreanTripletOutput)
+    println(" with a time of " + pythagoreanTripletTime + " seconds\n")
+
+    val stopwatch009b = new Stopwatch()
+    val pythagoreanTripleOutput: Int = pythagoreanTriple()
+    val pythagoreanTripleTime = stopwatch009b.elapsedTime()
+    println("Problem #009b")
+    println("============")
+    // the functional version runs about 30 seconds
+    // the java version runs at about .4 seconds
+    print("The functional product of abc of the pythagoreanTriple is = " + pythagoreanTripleOutput)
+    println(" with a time of " + pythagoreanTripleTime + " seconds\n")
+
+
+    val stopwatch010 = new Stopwatch()
+    val twoMillion = 2000000
+    val sumPrimesToTwoMillionOutput = (0L /: primesTo(twoMillion))(_ + _)
+    val sumPrimesToTwoMillionTime = stopwatch010.elapsedTime()
+    println("Problem #010")
+    println("============")
+    print("The procedural sum of primes to 2 million = " + sumPrimesToTwoMillionOutput)
+    println(" with a time of " + sumPrimesToTwoMillionTime + " seconds\n")
   }
 }
