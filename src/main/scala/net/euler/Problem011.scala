@@ -14,13 +14,6 @@ import scala.io.Source
  */
 object Problem011 {
 
-//  val matrix: Array[Array[Char]] = {
-//    val fileLines = Source.fromURL(getClass.getResource("/problem011.txt")).getLines().toList
-//    fileLines.filterNot(_.isEmpty).map { line =>
-//      (line.toArray).filter(e => e != ' ')
-//    }.toArray
-//  }
-
   val matrix: Array[Array[Int]] = {
     Source.fromURL(getClass.getResource("/problem011.txt")).getLines().
       toArray.map(l => l.split(" ").map(c => Integer.parseInt(c)))
