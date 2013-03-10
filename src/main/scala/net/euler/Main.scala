@@ -14,6 +14,7 @@ import net.euler.Problem011.maxAll
 import net.euler.Problem012.getNaturalNumbersWith
 import net.euler.Problem013.firstTenDigits
 import net.euler.Problem014.collatz
+import net.euler.Problem015.lattice
 
 /**
  * 
@@ -149,6 +150,15 @@ object Main {
     println("============")
     print("The longest collatz sequence comes from a value of " + collatzOutput)
     println(" with a time of " + collatzTime + " seconds\n")
+
+    val stopwatch015 = new Stopwatch()
+    val size = 20
+    val latticeOutput = lattice(size)
+    val latticeTime = stopwatch015.elapsedTime()
+    println("Problem #015")
+    println("============")
+    print("The number of paths for a lattice of " + size + "x" + size + " = " + latticeOutput)
+    println(" with a time of " + latticeTime + " seconds\n")
 
   }
 }
