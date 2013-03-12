@@ -15,6 +15,8 @@ import net.euler.Problem012.getNaturalNumbersWith
 import net.euler.Problem013.firstTenDigits
 import net.euler.Problem014.collatz
 import net.euler.Problem015.lattice
+import net.euler.Problem016.sumOfDigits
+import net.euler.Problem017.spelledOutLengthTo
 
 /**
  * 
@@ -159,6 +161,24 @@ object Main {
     println("============")
     print("The number of paths for a lattice of " + size + "x" + size + " = " + latticeOutput)
     println(" with a time of " + latticeTime + " seconds\n")
+
+    val stopwatch016 = new Stopwatch()
+    val exponent = 1000
+    val powerDigitSumOutput = sumOfDigits(exponent)
+    val powerDigitSumTime = stopwatch016.elapsedTime()
+    println("Problem #016")
+    println("============")
+    print("The sum of the digits of 2**1000 = " + powerDigitSumOutput)
+    println(" with a time of " + powerDigitSumTime + " seconds\n")
+
+    val stopwatch017 = new Stopwatch()
+    val ceiling = 1000
+    val letterCountsOutput = spelledOutLengthTo(ceiling)
+    val letterCountsTime = stopwatch017.elapsedTime()
+    println("Problem #017")
+    println("============")
+    print("The number-letter counts for integers 1 to " + ceiling + " = " + letterCountsOutput)
+    println(" with a time of " + letterCountsTime + " seconds\n")
 
   }
 }
