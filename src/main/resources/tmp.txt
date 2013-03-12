@@ -1,0 +1,10 @@
+Fork(
+  Fork(
+    Fork(Leaf(8),Leaf(5),2,15), Fork(Leaf(5),Leaf(9),4,18) ,7,40),
+  Fork(
+    Fork(Leaf(5),Leaf(9),4,18), Fork(Leaf(9),Leaf(3),6,18), 4,40),
+  3,83)
+
+
+3 + 7 + 4 + 2 + 4 + 6 + 8 + 5 + 9 + 3
+
