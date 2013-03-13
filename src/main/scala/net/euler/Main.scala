@@ -17,6 +17,7 @@ import net.euler.Problem014.collatz
 import net.euler.Problem015.lattice
 import net.euler.Problem016.sumOfDigits
 import net.euler.Problem017.spelledOutLengthTo
+import net.euler.Huffman._
 
 /**
  * 
@@ -179,6 +180,14 @@ object Main {
     println("============")
     print("The number-letter counts for integers 1 to " + ceiling + " = " + letterCountsOutput)
     println(" with a time of " + letterCountsTime + " seconds\n")
+
+    val stopwatch018 = new Stopwatch()
+    val huffmanOutput = max(huffmanTree)
+    val huffmanTime = stopwatch018.elapsedTime()
+    println("Problem #018")
+    println("============")
+    print("The maximum sum for the Huffman tree of 100 rows = " + huffmanOutput)
+    println(" with a time of " + huffmanTime + " seconds\n")
 
   }
 }
