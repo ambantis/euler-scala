@@ -27,23 +27,24 @@ object Problem019 {
 
   val leapYear = Array(0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
   val regYear =  Array(0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
+  def isLeap(year : Int): Boolean = year % 4 == 0 && year % 100 != 0 || year % 400 == 0
+  def isLastDay(year: Int, month: Int, day: Int, leap: Boolean): Boolean =
+    if (leap) day == leapYear(month) else day == regYear(month)
 
-  def incDate(date: (Int, Int, Int)): (Int, Int, Int) = {
-    val isLeap: Boolean = date._1 % 4 == 0 && date._1 % 100 != 0 || date._1 % 400 == 0
-    val isLastDay: Boolean = if (isLeap) date._3 == leapYear(date._2) else date._3 == regYear(date._2)
+  def incDate(date: (Int, Int, Int, Boolean)): (Int, Int, Int, Boolean) = {
     date match {
-      case (y, 12, 31)                => (y+1, 1, 1)
-      case (y,  m,  _) if (isLastDay) => (y, m+1, 1)
-      case (y,  m,  d)                => (y, m, d+1)
+      case (y, 12, 31, l)                            => (y+1, 1, 1, isLeap(y+1))
+      case (y,  m,  d, l) if (isLastDay(y, m, d, l)) => (y, m+1, 1, l)
+      case (y,  m,  d, l)                            => (y, m, d+1, l)
     }
   }
 
   def calcSundays(): Int = {
-    def iter(i: Int, sundays: Int, date: (Int, Int, Int)): Int = {
+    def iter(i: Int, sundays: Int, date: (Int, Int, Int, Boolean)): Int = {
       if (date._1 == 2000 && date._2 == 12 && date._3 == 31) sundays
       else if (date._1 > 1900 && date._3 == 1 && i % 7 == 0) iter(i+1, sundays+1, incDate(date))
       else iter(i+1, sundays, incDate(date))
     }
-    iter(1, 0, (1900, 1, 1))
+    iter(1, 0, (1900, 1, 1, false))
   }
 }

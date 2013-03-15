@@ -18,6 +18,7 @@ import net.euler.Problem015.lattice
 import net.euler.Problem016.sumOfDigits
 import net.euler.Problem017.spelledOutLengthTo
 import net.euler.Huffman._
+import net.euler.Problem019.calcSundays
 
 /**
  * 
@@ -188,6 +189,15 @@ object Main {
     println("============")
     print("The maximum sum for the Huffman tree of 100 rows = " + huffmanOutput)
     println(" with a time of " + huffmanTime + " seconds\n")
+
+    val stopwatch019 = new Stopwatch()
+    val sundaysOutput = calcSundays()
+    val sundaysTime = stopwatch019.elapsedTime()
+    println("Problem #019")
+    println("============")
+    print("The number of Sundays in the 20th Century = " + sundaysOutput)
+    println(" with a time of " + sundaysTime + " seconds\n")
+
 
   }
 }
