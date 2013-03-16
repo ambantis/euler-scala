@@ -11,20 +11,30 @@ package net.euler
  */
 object Problem003 {
 
-  private def roughRoot(number: Long) = {
-    def iter(i: Long): Long = if (i * i > number) i else iter(i + 1)
-    iter(2L)
+  lazy val primes: Stream[Int] = 2 #:: Stream.from(3).filter(i =>
+    primes.takeWhile(j => j * j <= i).forall(i % _ > 0))
+
+  def primeFactors(n: Long): List[Int] = {
+    val ceiling = Math.sqrt(n)
+    primes.view.takeWhile(_ < ceiling).filter(n % _ == 0).toList
   }
 
-  def primeFactors(number: Long): List[Long] = {
-    val ceiling = roughRoot(number)
-    def iter(factors: List[Long], rem: Long, i: Long): List[Long] = {
-      if (i == ceiling) factors
-      else if (rem % i == 0) iter(i :: factors, rem / i, i)
-      else iter(factors, rem, i + 1)
-    }
-    iter(List(1L), number, 2L)
-  }
+  // runs faster but is more verbose
+  //  private def roughRoot(number: Long) = {
+  //    def iter(i: Long): Long = if (i * i > number) i else iter(i + 1)
+  //    iter(2L)
+  //  }
+  //
+  //  def primeFactors(number: Long): List[Long] = {
+  //    val ceiling = roughRoot(number)
+  //    def iter(factors: List[Long], rem: Long, i: Long): List[Long] = {
+  //      if (i == ceiling) factors
+  //      else if (rem % i == 0) iter(i :: factors, rem / i, i)
+  //      else iter(factors, rem, i + 1)
+  //    }
+  //    iter(List(1L), number, 2L)
+  //  }
+
 
   //  runs very slowly
   //  private def isPrime(n: Long): Boolean = {
