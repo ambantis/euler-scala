@@ -17,5 +17,5 @@ object Problem020 {
 
   def fact(n: Int): BigInt = (BigInt(1) to BigInt(n)).reduce(_ * _)
 
-  val factorialSumOfDigitsFor100 = fact(100).toString().toList.map(c => c.toString.toInt).sum
+  val factorialSumOfDigitsFor100 = fact(100).toString().toList.map(_.asDigit).sum
 }
