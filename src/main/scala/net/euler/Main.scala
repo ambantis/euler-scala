@@ -95,7 +95,7 @@ object Main {
     println(" with a time of " + largestProductTime + " seconds\n")
 
     val stopwatch009a = new Stopwatch()
-    val pythagoreanTripletOutput: Int = pythagoreanTripleP()
+    val pythagoreanTripletOutput: Int = pythagoreanTripleP(1000)
     val pythagoreanTripletTime = stopwatch009a.elapsedTime()
     println("Problem #009a")
     println("============")
@@ -105,7 +105,7 @@ object Main {
     println(" with a time of " + pythagoreanTripletTime + " seconds\n")
 
     val stopwatch009b = new Stopwatch()
-    val pythagoreanTripleOutput: Int = pythagoreanTripleF()
+    val pythagoreanTripleOutput: Int = pythagoreanTripleF(1000)
     val pythagoreanTripleTime = stopwatch009b.elapsedTime()
     println("Problem #009b")
     println("============")

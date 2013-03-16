@@ -14,16 +14,14 @@ import scala.util.control.Breaks._
  */
 object Problem009 {
 
-  def pythagoreanTripleP(): Int = {
+  def pythagoreanTripleP(ceiling: Int): Int = {
     var product = 0
     breakable {
-      for (i <- 1 to 998) {
-        for (j <- 1 to 998) {
-          for (k <- 1 to 998) {
-            if (i + j + k == 1000 && isTripleP(i, j, k)) {
-              product = i * j * k
-              break()
-            }
+      for (c <- 1 to ceiling-2) {
+        for (b <- 1 to ceiling-1-c; a = ceiling - b - c) {
+          if (a*a + b*b == c*c) {
+            product = a * b * c
+            break()
           }
         }
       }
@@ -31,27 +29,14 @@ object Problem009 {
     product
   }
 
-  private def isTripleP(x: Int, y: Int, z: Int): Boolean = {
-    val max = Math.max(x, Math.max(y, z))
-    if (max == x) x*x == y*y + z*z
-    else if (max == y) y*y == x*x + z*z
-    else if (max == z) z*z == x*x + y*y
-    else false
-  }
-
-  def pythagoreanTripleF(): Int = {
+  def pythagoreanTripleF(ceiling: Int): Int = {
     val product: IndexedSeq[Int] =
       for {
-        x <- 1 to 998
-        y <- 1 to 998
-        z <- 1 to 998
-        if (x + y + z == 1000 && x < y && y < z && isTripleF(x, y, z))
-      } yield (x * y * z)
+        c <- 1 to ceiling - 2
+        b <- 1 to ceiling - 1 - c
+        a = ceiling - b - c
+        if (a*a + b*b == c*c)
+      } yield a * b * c
     product.head
-  }
-
-  private def isTripleF(x: Int, y: Int, z: Int): Boolean = (x, y, z) match {
-    case (a, b, c) => c*c == a*a + b*b
-    case _ => false
   }
 }
