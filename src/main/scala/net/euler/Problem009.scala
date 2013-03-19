@@ -14,7 +14,18 @@ import scala.util.control.Breaks._
  */
 object Problem009 {
 
-  def pythagoreanTripleP(ceiling: Int): Int = {
+  def pythagoreanTriple(ceiling: Int): Int = {
+    val product: IndexedSeq[Int] =
+      for {
+        c <- 1 to ceiling - 2
+        b <- 1 to ceiling - 1 - c
+        a = ceiling - b - c
+        if (a*a + b*b == c*c)
+      } yield a * b * c
+    product.head
+  }
+
+  def pythagoreanTripleProceduralVersion(ceiling: Int): Int = {
     var product = 0
     breakable {
       for (c <- 1 to ceiling-2) {
@@ -27,16 +38,5 @@ object Problem009 {
       }
     }
     product
-  }
-
-  def pythagoreanTripleF(ceiling: Int): Int = {
-    val product: IndexedSeq[Int] =
-      for {
-        c <- 1 to ceiling - 2
-        b <- 1 to ceiling - 1 - c
-        a = ceiling - b - c
-        if (a*a + b*b == c*c)
-      } yield a * b * c
-    product.head
   }
 }

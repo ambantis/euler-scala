@@ -8,7 +8,7 @@ import net.euler.Problem005.findSmallestMultiple
 import net.euler.Problem006.sumSquareDiff
 import net.euler.Problem007.primes
 import net.euler.Problem008.{largestProduct, source}
-import net.euler.Problem009.{pythagoreanTripleP, pythagoreanTripleF}
+import net.euler.Problem009.pythagoreanTriple
 import net.euler.Problem010.primesTo
 import net.euler.Problem011.maxAll
 import net.euler.Problem012.getNaturalNumbersWith
@@ -19,6 +19,8 @@ import net.euler.Problem016.sumOfDigits
 import net.euler.Problem017.spelledOutLengthTo
 import net.euler.Huffman._
 import net.euler.Problem019.calcSundays
+import net.euler.Problem020.factorialSumOfDigitsFor100
+import net.euler.Problem021.amicableSumTo
 
 /**
  * 
@@ -94,24 +96,14 @@ object Main {
     print("The largest consecutive product of 3 numbers is = " + largestProductOutput)
     println(" with a time of " + largestProductTime + " seconds\n")
 
-    val stopwatch009a = new Stopwatch()
-    val pythagoreanTripletOutput: Int = pythagoreanTripleP(1000)
-    val pythagoreanTripletTime = stopwatch009a.elapsedTime()
-    println("Problem #009a")
+    val stopwatch009 = new Stopwatch()
+    val pythagoreanTripleOutput: Int = pythagoreanTriple(1000)
+    val pythagoreanTripleTime = stopwatch009.elapsedTime()
+    println("Problem #009")
     println("============")
     // the functional version runs about 30 seconds
     // the java version runs at about .4 seconds
-    print("The procedural product of abc of the pythagoreanTripleP is = " + pythagoreanTripletOutput)
-    println(" with a time of " + pythagoreanTripletTime + " seconds\n")
-
-    val stopwatch009b = new Stopwatch()
-    val pythagoreanTripleOutput: Int = pythagoreanTripleF(1000)
-    val pythagoreanTripleTime = stopwatch009b.elapsedTime()
-    println("Problem #009b")
-    println("============")
-    // the functional version runs about 30 seconds
-    // the java version runs at about .4 seconds
-    print("The functional product of abc of the pythagoreanTripleF is = " + pythagoreanTripleOutput)
+    print("The functional product of abc of the pythagoreanTriple is = " + pythagoreanTripleOutput)
     println(" with a time of " + pythagoreanTripleTime + " seconds\n")
 
     val stopwatch010 = new Stopwatch()
@@ -198,6 +190,22 @@ object Main {
     print("The number of Sundays in the 20th Century = " + sundaysOutput)
     println(" with a time of " + sundaysTime + " seconds\n")
 
+    val stopwatch020 = new Stopwatch()
+    val factSumOutput = factorialSumOfDigitsFor100
+    val factSumTime = stopwatch020.elapsedTime()
+    println("Problem #020")
+    println("============")
+    print("The sum of the digits for 100! = " + factSumOutput)
+    println(" with a time of " + factSumTime + " seconds\n")
+
+    val stopwatch021 = new Stopwatch()
+    val n = 10000
+    val amicableOutput = amicableSumTo(n)
+    val amicableTime = stopwatch021.elapsedTime()
+    println("Problem #021")
+    println("============")
+    print("The sum of all amicable numbers under " + n + " = " + amicableOutput)
+    println(" with a time of " + amicableTime + " seconds\n")
 
   }
 }
