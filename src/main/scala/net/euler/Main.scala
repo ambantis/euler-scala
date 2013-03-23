@@ -21,6 +21,7 @@ import net.euler.Huffman._
 import net.euler.Problem019.calcSundays
 import net.euler.Problem020.factorialSumOfDigitsFor100
 import net.euler.Problem021.amicableSumTo
+import net.euler.Problem022.namesScores
 
 /**
  * 
@@ -206,6 +207,15 @@ object Main {
     println("============")
     print("The sum of all amicable numbers under " + n + " = " + amicableOutput)
     println(" with a time of " + amicableTime + " seconds\n")
+
+    val stopwatch022 = new Stopwatch()
+    val file = "problem022.txt"
+    val namesScoresOutput = namesScores(file)
+    val namesScoresTime = stopwatch022.elapsedTime()
+    println("Problem #022")
+    println("============")
+    print("The sum of all names scores = " + namesScoresOutput)
+    println(" with a time of " + namesScoresTime + " seconds\n")
 
   }
 }
