@@ -22,6 +22,7 @@ import net.euler.Problem019.calcSundays
 import net.euler.Problem020.factorialSumOfDigitsFor100
 import net.euler.Problem021.amicableSumTo
 import net.euler.Problem022.namesScores
+import net.euler.Problem029.genDistinctTerms
 
 /**
  * 
@@ -216,6 +217,15 @@ object Main {
     println("============")
     print("The sum of all names scores = " + namesScoresOutput)
     println(" with a time of " + namesScoresTime + " seconds\n")
+
+    val stopwatch029 = new Stopwatch()
+    val hundred = genDistinctTerms(100)
+    val hundredTime = stopwatch029.elapsedTime()
+    println("Problem #029")
+    println("============")
+    print("The number of distinct powers for a**b (between 2 & 100) = " + hundred.length)
+    println(" with a time of " + hundredTime + " seconds\n")
+
 
   }
 }
