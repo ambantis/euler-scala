@@ -50,7 +50,7 @@ object Problem011 {
     val values: IndexedSeq[Int] = for {
       y <- 3 to matrix.length - 1
       x <- 3 to matrix.length - 1
-      product = matrix(y)(x) * matrix(y-1)(x-1) * matrix(y-2)(x-5) * matrix(y-3)(x-3)
+      product = matrix(y)(x) * matrix(y-1)(x-1) * matrix(y-2)(x-2) * matrix(y-3)(x-3)
     } yield product
     values.max
   }

@@ -23,6 +23,7 @@ import net.euler.Problem020.factorialSumOfDigitsFor100
 import net.euler.Problem021.amicableSumTo
 import net.euler.Problem022.namesScores
 import net.euler.Problem029.genDistinctTerms
+import net.euler.Problem031.coinSums
 
 /**
  * 
@@ -226,6 +227,15 @@ object Main {
     print("The number of distinct powers for a**b (between 2 & 100) = " + hundred.length)
     println(" with a time of " + hundredTime + " seconds\n")
 
+    val stopwatch31a = new Stopwatch()
+    val amount = 200
+    val coins = List(1,2,5,10,20,50,100,200)
+    val coinCount = coinSums(amount, coins)
+    val coinCountTime = stopwatch31a.elapsedTime()
+    println("Problem #031")
+    println("============")
+    print("The number of ways to make change for 2 gbp = " + coinCount)
+    println(" with a time of " + coinCountTime + " seconds\n")
 
   }
 }
