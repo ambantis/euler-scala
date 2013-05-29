@@ -17,9 +17,8 @@ object Problem034 {
 
   def fact(n: Int): Int = (1 to n).reduce((_ * _))
   def pow(base: Int, exp: Int): Long = (1 to exp).map(x => base).toList.reduce(_ * _)
-
   val fact9 = fact(9)
 
-  def limit(n: Int) = (0 to n).map(x => (x, pow(9, x), x * fact9))
+  def limit(i: Int): Int = if (pow(9,i) > fact9 * i) i else limit(i+1)
 
 }
