@@ -15,10 +15,29 @@ package net.euler
  */
 object Problem034 {
 
-  def fact(n: Int): Int = (1 to n).reduce((_ * _))
+  def digitFactorials() = {
+    def sumOfFact(n: Long): Long = (0L /: numToList(n).map(x => fact(x)))(_ + _)
+    def numToList(n: Long): List[Long] = n.toString.map(x => x.toString.toLong).toList
+    val ceiling = pow(10, limit)
+    def iter(i: Long, acc: Long): Long = {
+      if (i > ceiling) acc
+      else if (i == sumOfFact(i)) iter(i+1, acc+i)
+      else iter(i+1, acc)
+    }
+    iter(3,0)
+  }
+
+  def fact(n: Long): Long =
+    if (n == 0) 1
+    else (1L to n).reduce(_   * _)
   def pow(base: Int, exp: Int): Long = (1 to exp).map(x => base).toList.reduce(_ * _)
   val fact9 = fact(9)
 
-  def limit(i: Int): Int = if (pow(9,i) > fact9 * i) i else limit(i+1)
-
+  val limit: Int = {
+    def iter(i: Int): Int = {
+      if (pow(9,i) > fact9 * i) i
+      else iter(i+1)
+    }
+    iter(1)
+  }
 }
