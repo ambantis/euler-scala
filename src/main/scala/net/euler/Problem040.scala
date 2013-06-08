@@ -6,12 +6,6 @@ package net.euler
  * An irrational decimal fraction is created by concatenating the positive integers:
  *
  *     0.123456789 10 11 12 13 14 15 16 17 18 19 20 21 ...
- *       123456789 10 11 12 13 14 15 16 17 18 19 20 21
- *       123456789 10 11 21 31 41 51 61 71 81 91 02 12
- *       123456789011121314151617181910212
- *       123456789101112131415161718192021
- *       123456789101112131415161718191011
- *
  *
  * It can be seen that the 12th digit of the fractional part is 1.
  *
