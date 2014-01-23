@@ -33,8 +33,8 @@ object Huffman {
   }
 
   def max(t: CodeTree): Int = t match {
-    case Fork(left, right, a, w) if (weight(left) >= weight(right)) => a + max(left)
-    case Fork(left, right, a, w) if (weight(left) <  weight(right)) => a + max(right)
+    case Fork(left, right, a, w) if weight(left) >= weight(right) => a + max(left)
+    case Fork(left, right, a, w) if weight(left) <  weight(right) => a + max(right)
     case Leaf(a) => a
   }
 

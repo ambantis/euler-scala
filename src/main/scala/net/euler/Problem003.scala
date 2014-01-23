@@ -10,13 +10,20 @@ package net.euler
  * Time: 11:11 PM
  */
 object Problem003 {
+  import math.sqrt
 
-  lazy val primes: Stream[Int] = 2 #:: Stream.from(3).filter(i =>
-    primes.takeWhile(j => j * j <= i).forall(i % _ > 0))
+//  lazy val primes: Stream[Int] = 2 #:: Stream.from(3).filter(i =>
+//    primes.takeWhile(j => j * j <= i).forall(i % _ > 0))
 
-  def primeFactors(n: Long): List[Int] = {
-    val ceiling = Math.sqrt(n)
-    primes.view.takeWhile(_ < ceiling).filter(n % _ == 0).toList
+//  def primeFactors(n: Long) = primes.takeWhile(_ < sqrt(n)).filter(n % _ == 0).toList
+
+  def maxPrimeFactor(n: Long): Long = {
+    def isPrime(x: Long): Boolean = (2L to sqrt(x).toLong).forall(x % _ != 0)
+    def iter(i: Long): Long {
+      if (n % i == 0 && isPrime(n/i)) n/i
+      else iter(i+1)
+    }
+    iter(2)
   }
 
   // runs faster but is more verbose
