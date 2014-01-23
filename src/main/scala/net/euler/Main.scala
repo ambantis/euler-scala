@@ -2,8 +2,8 @@ package net.euler
 
 import net.euler.Problem001.lazySumOfMultiples3And5To
 import net.euler.Problem002.sumEvenFibonacci
-import net.euler.Problem003.primeFactors
-import net.euler.Problem004.{maxPalindromeProduct,threeDigitNumbers}
+import net.euler.Problem003.maxPrimeFactor
+import net.euler.Problem004.maxPalindrome
 import net.euler.Problem005.findSmallestMultiple
 import net.euler.Problem006.sumSquareDiff
 import net.euler.Problem007.primes
@@ -26,7 +26,7 @@ import net.euler.Problem029.genDistinctTerms
 import net.euler.Problem031.coinSums
 
 /**
- * 
+ *
  * User: Alexandros Bantis
  * Date: 1/26/13
  * Time: 8:34 PM
@@ -52,7 +52,7 @@ object Main {
     println(" with a time of " + sumEvenFiboNumbersTime + " seconds\n")
 
     val stopwatch003 = new Stopwatch()
-    val largestPrimeFactorOutput: Long = primeFactors(600851475143L).head
+    val largestPrimeFactorOutput: Long = maxPrimeFactor(600851475143L)
     val largestPrimeFactorTime = stopwatch003.elapsedTime()
     println("Problem #003")
     println("============")
@@ -60,7 +60,7 @@ object Main {
     println(" with a time of " + largestPrimeFactorTime + " seconds\n")
 
     val stopwatch004 = new Stopwatch()
-    val maxPalindromeProductOutput: Int = maxPalindromeProduct(threeDigitNumbers)
+    val maxPalindromeProductOutput: Int = maxPalindrome
     val maxPalindromeProductTime = stopwatch004.elapsedTime()
     println("Problem #004")
     println("============")

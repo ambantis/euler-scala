@@ -19,7 +19,7 @@ object Problem003 {
 
   def maxPrimeFactor(n: Long): Long = {
     def isPrime(x: Long): Boolean = (2L to sqrt(x).toLong).forall(x % _ != 0)
-    def iter(i: Long): Long {
+    def iter(i: Long): Long = {
       if (n % i == 0 && isPrime(n/i)) n/i
       else iter(i+1)
     }

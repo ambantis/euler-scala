@@ -13,18 +13,26 @@ package net.euler
  */
 object Problem004 {
 
-  val twoDigitNumbers = (1 to 99).toList
-  val threeDigitNumbers = (100 to 999).toList
+//  val twoDigitNumbers = (1 to 99).toList
+//  val threeDigitNumbers = (100 to 999).toList
 
-  def maxPalindromeProduct(numbers: List[Int]): Int = {
-    val palindromes =
-      for {
-        x <- numbers
-        y <- numbers
-        value = x * y
-        if (value.toString == value.toString.reverse)
-      } yield value
-    palindromes.max
-  }
+//  def maxPalindromeProduct(numbers: List[Int]): Int = {
+//    val palindromes =
+//      for {
+//        x <- numbers
+//        y <- numbers
+//        value = x * y
+//        if (value.toString == value.toString.reverse)
+//      } yield value
+//    palindromes.max
+//  }
+
+  val divisors = (100 to 999).toList
+  val ceiling = 999 * 999
+  def isPalindrome(x: Int): Boolean = x.toString == x.toString.reverse
+  def isProduct(n: Int): Boolean = divisors.exists { x => n % x == 0 && divisors.contains(n/x) }
+  def maxPalindrome: Int = (ceiling to 1 by -1).dropWhile { x =>
+    !(isPalindrome(x) && isProduct(x))
+  } head
 
 }
